@@ -1,0 +1,30 @@
+:root{
+  --paper:#ecebe4; --paper2:#e4e2d8; --ink:#1b1a17; --ink-soft:#4a4740;
+  --red:#d6342a; --blue:#2a4fb5; --green:#2f8a4b;
+  --f-note:"Reenie Beanie","Nothing You Could Do",cursive;
+  --f-label:"Archivo Narrow","Inter Tight","Arial Narrow",sans-serif;
+  --f-type:"Special Elite","IBM Plex Mono","Courier New",monospace;
+  --gutter:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-label);font-size:18px;line-height:1.4;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .27  0 0 0 0 .2  0 0 0 .22 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.mono{font-family:var(--f-type)}
+.note{font-family:var(--f-note);font-size:30px;line-height:.95;color:var(--blue);margin:0}
+.note.red{color:var(--red)} .note.ink{color:var(--ink)}
+.hand{filter:none;pointer-events:none;user-select:none}
+.stamp-box{display:inline-block;border:2.5px dashed var(--ink);padding:10px 18px;text-align:center;font-family:var(--f-type);background:rgba(255,255,255,.25)}
+.stamp-box p{margin:0;font-size:13px;text-transform:lowercase}
+.stamp-box .big{font-size:18px;font-weight:700;text-transform:none;letter-spacing:.04em;margin-bottom:6px}
+.stamp-box .big:last-child{margin-bottom:0}
+.crayon{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:url(#crayon)}
+.crayon.thin{stroke-width:2.5}
+.crayon.red{stroke:var(--red)}.crayon.blue{stroke:var(--blue)}.crayon.green{stroke:var(--green)}
+.dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--red);filter:url(#crayon)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.pv-back{position:fixed;right:10px;bottom:10px;z-index:500;font:12px var(--f-type);background:var(--ink);color:var(--paper);padding:4px 9px;text-decoration:none;opacity:.8}
+.pv-back:hover{background:var(--red);opacity:1}

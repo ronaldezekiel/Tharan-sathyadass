@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A · Photocopier — Tharan Sathyadass (preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+body{overflow-x:clip}
+.panel{position:fixed;top:10px;right:10px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--ink);color:#e9e7de;font:12px var(--f-type);padding:6px 6px 6px 12px;letter-spacing:.06em;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.led{width:9px;height:9px;border-radius:50%;background:#4cc16b;box-shadow:0 0 6px #4cc16b}
+.busy .led{background:var(--red);box-shadow:0 0 8px var(--red);animation:blink .35s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+#st{min-width:86px}
+#go{background:var(--red);border:0;color:#fff;font:12px var(--f-type);letter-spacing:.08em;padding:6px 10px}
+#go:active{transform:translateY(1px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
+.sheet{position:relative;margin:34px auto;max-width:1180px;background:#f3f2ec;padding:38px var(--gutter) 40px;box-shadow:0 1px 0 rgba(0,0,0,.2),0 18px 30px -22px rgba(0,0,0,.55);border-top:1px solid rgba(0,0,0,.08)}
+.sheet::before{content:attr(data-pg);position:absolute;top:10px;left:var(--gutter);font:11px var(--f-type);color:var(--ink-soft);letter-spacing:.12em}
+.sheet::after{content:"+";position:absolute;top:6px;right:14px;font:16px var(--f-type);color:var(--ink-soft)}
+.js .sheet{opacity:0}
+.js .sheet.in{animation:feed .8s cubic-bezier(.2,.75,.25,1) both}
+@keyframes feed{
+  0%{opacity:1;clip-path:inset(-80px -80px 100% -80px);transform:translateY(-24px) skewY(-.8deg)}
+  60%{opacity:1;clip-path:inset(-80px -80px -80px -80px);transform:translateY(3px) skewY(.2deg)}
+  100%{opacity:1;clip-path:inset(-80px -80px -80px -80px);transform:none}}
+.hero{display:grid;gap:26px;grid-template-columns:1fr;position:relative}
+h1{font-weight:700;text-transform:uppercase;font-size:clamp(46px,13vw,104px);line-height:.88;margin:6px 0 12px;letter-spacing:-.01em}
+.tagline{font-family:var(--f-type);font-size:15px;margin:0 0 18px}
+.stamp-box{transform:rotate(1.5deg)}
+.year{display:flex;flex-direction:column;line-height:.8;font-weight:700;font-size:clamp(96px,26vw,190px);color:#25231f;filter:url(#toner);transform:rotate(-4deg);margin:14px 0 0 6px;font-size:clamp(96px,26vw,170px)}
+.year span{display:block}
+.row2{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.scrib{position:absolute;pointer-events:none;overflow:visible}
+.hero-img{max-width:430px}
+.hero-img .note{position:absolute;left:-6px;bottom:-30px;transform:rotate(-3deg);z-index:3}
+@media(min-width:860px){:root{--gutter:36px}.hero{grid-template-columns:1.15fr 1fr;align-items:center;gap:50px}.sheet{padding-top:48px}}
+/* work plate */
+.work{position:relative;margin:0;--rot:0deg;transform:rotate(var(--rot));outline:none}
+.plate{position:relative;background:#f4f3ee;box-shadow:0 10px 24px -14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.08);aspect-ratio:var(--ar)}
+.plate>img,.plate>canvas,.lay,.lay img{position:absolute;inset:0;width:100%;height:100%}
+.plate>img{object-fit:cover;filter:grayscale(1) contrast(1.25);transition:opacity .15s}
+.lay{background:var(--c);mix-blend-mode:multiply;opacity:0;transition:transform .5s cubic-bezier(.2,1.6,.4,1),opacity .2s;pointer-events:none}
+.lay img{object-fit:cover;mix-blend-mode:screen;filter:grayscale(1) contrast(1.35)}
+.lay.r{--c:#e9463a}.lay.b{--c:#2f56d6}.lay.g{--c:#2fa05a}
+.work.mis .lay{opacity:.92;transition:transform .12s cubic-bezier(.3,0,.2,1),opacity .1s}
+.work.mis .lay.r{transform:translate(-5px,2px)}.work.mis .lay.b{transform:translate(4px,-3px)}.work.mis .lay.g{transform:translate(1px,5px)}
+.work.mis .plate>img{opacity:.35}
+.plate canvas{z-index:2}
+.pre .plate>img{clip-path:inset(0 0 100% 0)}
+.scan{position:absolute;left:-4%;right:-4%;height:34px;top:0;z-index:5;margin-top:-17px;opacity:0;pointer-events:none;
+ background:linear-gradient(to bottom,transparent,rgba(120,170,255,.28) 35%,#fff 50%,rgba(255,120,110,.22) 62%,transparent);mix-blend-mode:normal;filter:blur(.6px);box-shadow:0 0 12px 2px rgba(255,255,255,.5)}
+.scanning .scan{opacity:1}
+.cap{display:flex;flex-direction:column;gap:2px;margin-top:10px}
+.cap .note{font-size:27px}
+.cap .mono{font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 16px;align-items:start;margin-top:30px}
+.grid .work:nth-child(1){--rot:-.8deg}.grid .work:nth-child(2){--rot:.6deg;grid-column:span 2;max-width:520px;justify-self:center}
+.grid .work:nth-child(3){--rot:.9deg}.grid .work:nth-child(4){--rot:-1deg;margin-top:20px}
+.grid .work:nth-child(5){--rot:.8deg}.grid .work:nth-child(6){--rot:-1deg}
+@media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr);gap:48px 34px}
+ .grid .work:nth-child(2){grid-column:auto;max-width:none;justify-self:stretch;margin-top:46px}.grid .work:nth-child(4){margin-top:0}.grid .work:nth-child(5){margin-top:40px}}
+h2{font-weight:700;text-transform:uppercase;font-size:clamp(28px,6vw,46px);margin:0;line-height:1}
+.sh{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sh .note{font-size:32px}
+.foot{font:13px var(--f-type);color:var(--ink-soft);text-align:center;padding:10px 0 60px}
+@media(prefers-reduced-motion:reduce){.js .sheet{opacity:1}.js .sheet.in{animation:none}.lay{transition:none}.scan{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <filter id="toner" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="2" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="4" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1" result="g"><animate id="tonerAnim" attributeName="seed" values="1;5;3;8;2;6;4;7" dur="2.4s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence>
+  <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -4 0 0 0 3.15" result="m"/>
+  <feComposite in="d" in2="m" operator="in"/>
+ </filter></defs></svg>
+
+<div class="panel" id="panel"><span class="led"></span><span id="st">READY</span><button id="go" type="button" aria-label="Run the copier again">START &#9654;</button></div>
+
+<main>
+<section class="sheet" data-pg="COPY 01 / 02 &nbsp;·&nbsp; SIDE A">
+  <div class="hero">
+    <div style="position:relative">
+      <p class="note">I make pictures of people &amp; places —</p>
+      <h1>Tharan<br>Sathyadass</h1>
+      <p class="tagline">Artist | Entrepreneur | Photographer, Bangalore</p>
+      <div class="row2"><div class="stamp-box"><p>artwork from</p><p class="big">ARCHIVE</p><p>in charge of</p><p class="big">Tharan Sathyadass *</p></div>
+      <div class="year" aria-label="2026"><span>20</span><span>26</span></div></div>
+      <svg class="scrib" style="left:0;top:118px;width:260px;height:30px" viewBox="0 0 260 30"><path class="crayon red" d="M4 18 C 60 6, 120 26, 255 10"/></svg>
+      
+    </div>
+    <div id="hero-slot" class="hero-img"></div>
+  </div>
+</section>
+
+<section class="sheet" data-pg="COPY 02 / 02 &nbsp;·&nbsp; SIDE B">
+  <div class="sh"><h2>Selected work</h2><p class="note red">hover (or tap) a print — it misregisters</p></div>
+  <div class="grid" id="grid"></div>
+</section>
+</main>
+<p class="foot">&copy; Tharan Sathyadass — archive copy, do not fold</p>
+
+<script src="../shared/common.js"></script>
+<script>
+PV.back();
+(function(){
+  var R = PV.reduced, root = document.documentElement; root.classList.add('js');
+  var CELL = '#f4f3ee', busy = 0, st = document.getElementById('st'), panel = document.getElementById('panel');
+  function setBusy(d){ busy = Math.max(0,busy+d); panel.classList.toggle('busy',busy>0); st.textContent = busy>0 ? 'SCANNING…' : 'READY'; }
+
+  function makeWork(w, big){
+    var f = document.createElement('figure'); f.className='work pre'; f.tabIndex=0;
+    f.style.setProperty('--ar', w.w+'/'+w.h);
+    var src = big ? w.full : w.thumb;
+    f.innerHTML = '<div class="plate"><img alt="'+w.title+', '+w.medium+'" src="'+src+'">'+
+      '<span class="lay r"><img alt="" src="'+src+'"></span><span class="lay b"><img alt="" src="'+src+'"></span><span class="lay g"><img alt="" src="'+src+'"></span>'+
+      '<canvas></canvas><i class="scan"></i></div>'+
+      '<figcaption class="cap"><span class="note">no. '+w.n+' — '+w.medium+'</span><span class="mono">'+w.title+'</span></figcaption>';
+    return f;
+  }
+  var hero = makeWork(PV.works[0], true);
+  hero.insertAdjacentHTML('beforeend','<span class="note ink" style="display:none"></span>');
+  document.getElementById('hero-slot').appendChild(hero);
+  var grid = document.getElementById('grid');
+  [1,2,3,4,5,6].forEach(function(i){ grid.appendChild(makeWork(PV.works[i])); });
+  var works = [].slice.call(document.querySelectorAll('.work'));
+
+  /* halftone */
+  function halftone(cv, img, cell){
+    var W = cv.width, H = cv.height, ctx = cv.getContext('2d');
+    var cw = Math.ceil(W/cell), ch = Math.ceil(H/cell);
+    var o = document.createElement('canvas'); o.width=cw; o.height=ch;
+    var oc = o.getContext('2d'); oc.drawImage(img,0,0,cw,ch);
+    var d = oc.getImageData(0,0,cw,ch).data;           // throws if tainted
+    ctx.fillStyle = CELL; ctx.fillRect(0,0,W,H); ctx.fillStyle = '#17160f';
+    for(var y=0;y<ch;y++) for(var x=0;x<cw;x++){
+      var k=(y*cw+x)*4, lum=(.3*d[k]+.59*d[k+1]+.11*d[k+2])/255;
+      var dk=Math.min(1,Math.max(0,(1-lum)*1.3)); if(dk<.04) continue;
+      var r=cell*.74*Math.sqrt(dk), px=(x+.5+((y&1)?.25:-.25))*cell, py=(y+.5)*cell;
+      ctx.beginPath(); ctx.arc(px,py,r,0,6.2832); ctx.fill();
+    }
+  }
+  function sizeCanvas(w){
+    var p=w.querySelector('.plate'), cv=w.querySelector('canvas'), s=Math.min(2,window.devicePixelRatio||1);
+    cv.width=Math.round(p.clientWidth*s); cv.height=Math.round(p.clientHeight*s); cv._s=s; return cv;
+  }
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function reveal(w){
+    if(w._run) return; w._run=true;
+    var img=w.querySelector('.plate>img'), cv=sizeCanvas(w), s=cv._s;
+    function go(){
+      if(R){ w.classList.remove('pre'); cv.style.display='none'; w._run=false; w._done=true; return; }
+      var ok=true;
+      try{ halftone(cv,img,18*s); }catch(e){ ok=false; }
+      cv.style.display = ok ? '' : 'none';
+      cv.style.clipPath='none'; w.classList.add('pre','scanning'); setBusy(1);
+      var sizes=[[0,16],[200,9]], si=0, t0=performance.now(), delay=380, dur=1250;
+      var sc=w.querySelector('.scan'), base=w.querySelector('.plate>img');
+      (function tick(now){
+        var t=now-t0;
+        while(ok && si<sizes.length-1 && t>=sizes[si+1][0]){ si++; try{halftone(cv,img,sizes[si][1]*s);}catch(e){} }
+        var p=Math.max(0,Math.min(1,(t-delay)/dur)); p=ease(p);
+        sc.style.top=(p*100)+'%';
+        base.style.clipPath='inset(0 0 '+((1-p)*100)+'% 0)';
+        cv.style.clipPath='inset('+(p*100)+'% 0 0 0)';
+        if(t-delay<dur) requestAnimationFrame(tick);
+        else { base.style.clipPath=''; w.classList.remove('pre','scanning'); cv.style.display='none'; w._run=false; w._done=true; setBusy(-1); }
+      })(performance.now());
+    }
+    if(img.complete && img.naturalWidth) go(); else img.addEventListener('load',go,{once:true});
+  }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(e.isIntersecting){
+      if(e.target.classList.contains('sheet')) e.target.classList.add('in');
+      else if(!e.target._done) setTimeout(function(){reveal(e.target)}, e.target._d||0);
+    }});},{threshold:.2});
+  document.querySelectorAll('.sheet').forEach(function(s){io.observe(s)});
+  works.forEach(function(w,i){ w._d=(i%3)*160; io.observe(w); });
+
+  /* misprint */
+  works.forEach(function(w){
+    var t;
+    w.addEventListener('pointerenter',function(e){ if(e.pointerType==='mouse') w.classList.add('mis'); });
+    w.addEventListener('pointerleave',function(e){ if(e.pointerType==='mouse') w.classList.remove('mis'); });
+    w.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse'){ w.classList.add('mis'); clearTimeout(t); t=setTimeout(function(){w.classList.remove('mis')},650);} });
+    w.addEventListener('focus',function(){w.classList.add('mis')}); w.addEventListener('blur',function(){w.classList.remove('mis')});
+  });
+  document.getElementById('go').addEventListener('click',function(){
+    works.forEach(function(w){ w._done=false; w._run=false; w.classList.add('pre'); w.querySelector('.plate>img').style.clipPath=''; io.unobserve(w); io.observe(w); });
+  });
+  if(R) document.getElementById('tonerAnim').remove();
+})();
+</script>
+</body>
+</html>
