@@ -17,7 +17,7 @@ window.JOURNAL = [
     body: '<p>Kothanur Run Club was featured in <em>Indulge Express</em> in October 2025, in a piece titled “putting Kothanur on the Map”.</p>',
     photos: [],
     tags: ['press'],
-    link: { href: '', label: 'Read the article' } // TODO: article URL
+    link: { href: 'https://www.indulgexpress.com/events/bangalore/2025/Oct/10/this-weekend-run-club-traces-how-a-small-jog-with-friends-turned-kothanur-into-the-place-to-be', label: 'Read the article' }
   },
   {
     slug: 'how-it-started',
