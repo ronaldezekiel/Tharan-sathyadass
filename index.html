@@ -2,33 +2,190 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tharan Sathyadass — Artist · Photographer · Bangalore</title>
-<meta name="description" content="Portfolio of Tharan Sathyadass: charcoal drawings and photography from Bangalore.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tharan Sathyadass</title>
+<meta name="description" content="Tharan Sathyadass, charcoal artist and photographer from Kothanur, Bangalore.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&family=Zeyada&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-</head>
-<body class="landing-page">
+<style>
+/* ---------- landing: a handwritten letter on a sheet of paper ---------- */
+html:has(body.lp){background:#d8ccb3}
+body.lp{background:#d8ccb3;--hand:"Zeyada","Nothing You Could Do",cursive;--ink-pen:#2f2215;--c-art:#b5802a;--c-photo:#66703a;--c-work:#a8461f;--sheet:#ece1cb;--tan:#cbbd9f;--sepia:#4a3a26;
+  --u:min(1px,.135vw);--fs:clamp(30px,8.4vw,38px);min-height:100vh;min-height:100svh;padding:64px 0 48px}
+.lp .chrome-brand,.lp .menu-btn,.lp .pin{mix-blend-mode:normal;color:#33271a}
+.lp .pin a{border-color:#33271a}
+.lp .menu-btn:focus-visible{outline-color:#33271a}
+body.lp::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='d' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .28  0 0 0 0 .18  0 0 0 -1.2 .8'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23d)' opacity='.5'/%3E%3C/svg%3E")}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.lp .stage{position:relative;max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,860px);justify-content:center}
+.sheet-wrap{position:relative}
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="4" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" result="d"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.25" result="grainA"/>
-      <feComposite in="d" in2="grainA" operator="in"/>
-    </filter>
-    <filter id="tintR" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .85  0 0 0 0 .2  0 0 0 0 .16  0 0 0 1 0"/></filter>
-    <filter id="tintB" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .16  0 0 0 0 .31  0 0 0 0 .8  0 0 0 1 0"/></filter>
-    <filter id="tintG" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .18  0 0 0 0 .63  0 0 0 0 .35  0 0 0 1 0"/></filter>
-    <filter id="chanR" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
-    <filter id="chanG" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
-    <filter id="chanB" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
-  </defs>
-</svg>
+/* the sheet: shadow on a wrapper, uneven edge (clip-path) on the sheet itself */
+.sheet-shadow{position:relative;z-index:2;transform:rotate(-.3deg);filter:drop-shadow(0 1px 1px rgba(50,35,15,.3)) drop-shadow(0 14px 20px rgba(50,35,15,.22))}
+.sheet{position:relative;background:var(--sheet);padding:clamp(30px,5vw,48px) clamp(22px,6vw,72px) 36px;overflow:hidden;
+  clip-path:polygon(0.00% 0.15%,2.94% 0.07%,5.88% 0.29%,8.82% 0.03%,11.76% 0.24%,14.71% 0.16%,17.65% 0.03%,20.59% 0.23%,23.53% 0.02%,26.47% 0.20%,29.41% 0.03%,32.35% 0.04%,35.29% 0.19%,38.24% 0.37%,41.18% 0.06%,44.12% 0.10%,47.06% 0.28%,50.00% 0.43%,52.94% 0.26%,55.88% 0.18%,58.82% 0.44%,61.76% 0.02%,64.71% 0.39%,67.65% 0.13%,70.59% 0.06%,73.53% 0.05%,76.47% 0.14%,79.41% 0.37%,82.35% 0.08%,85.29% 0.26%,88.24% 0.29%,91.18% 0.17%,94.12% 0.25%,97.06% 0.03%,99.98% 0.06%,99.76% 4.67%,99.89% 9.27%,99.84% 13.73%,99.72% 18.39%,99.91% 22.90%,99.82% 27.54%,99.74% 31.90%,99.66% 36.40%,99.85% 41.14%,99.95% 45.60%,99.99% 50.20%,99.73% 54.72%,99.69% 59.19%,99.76% 63.81%,99.80% 68.32%,99.71% 73.01%,99.83% 77.47%,99.98% 82.03%,99.77% 86.66%,99.71% 90.99%,99.86% 95.66%,100.00% 99.99%,97.06% 99.79%,94.12% 99.92%,91.18% 99.95%,88.24% 99.97%,85.29% 99.65%,82.35% 99.94%,79.41% 99.89%,76.47% 99.82%,73.53% 99.61%,70.59% 99.96%,67.65% 99.80%,64.71% 99.75%,61.76% 99.60%,58.82% 99.63%,55.88% 99.61%,52.94% 99.87%,50.00% 99.81%,47.06% 99.84%,44.12% 99.60%,41.18% 99.57%,38.24% 99.93%,35.29% 99.92%,32.35% 99.90%,29.41% 99.89%,26.47% 99.78%,23.53% 99.73%,20.59% 99.88%,17.65% 100.00%,14.71% 99.81%,11.76% 99.83%,8.82% 99.75%,5.88% 99.57%,2.94% 99.69%,0.18% 99.81%,0.24% 95.44%,0.31% 90.68%,0.31% 86.12%,0.14% 81.70%,0.04% 77.08%,0.02% 72.71%,0.07% 68.13%,0.12% 63.62%,0.00% 59.05%,0.04% 54.44%,0.01% 49.74%,0.21% 45.41%,0.09% 40.80%,0.13% 36.33%,0.30% 31.52%,0.16% 27.13%,0.03% 22.70%,0.12% 18.10%,0.29% 13.59%,0.01% 8.81%,0.18% 4.50%)}
+.sheet>*{position:relative;z-index:2}
+/* paper: fibre grain + fine tooth, fold crease, vignette */
+.sheet::before,.sheet::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1}
+.sheet::before{opacity:.95;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42  0 0 0 0 .38  0 0 0 0 .3  0 0 0 -1.1 .75'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)' opacity='.55'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .09' numOctaves='4' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .36  0 0 0 -3 1.35'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23g)' opacity='.3'/%3E%3C/svg%3E")}
+.sheet::after{background:
+  linear-gradient(to bottom,transparent calc(34% - 14px),rgba(60,50,30,.05) calc(34% - 5px),rgba(60,50,30,.13) calc(34% - 1px),rgba(255,248,228,.7) 34%,rgba(255,248,228,.3) calc(34% + 3px),transparent calc(34% + 14px)),
+  linear-gradient(to right,transparent calc(50% - 20px),rgba(60,50,30,.03) 50%,transparent calc(50% + 20px)),
+  /* coffee ring, foxing, tea-toned edges */
+  radial-gradient(circle at 17% 91%,transparent 41px,rgba(120,80,40,.07) 42px,rgba(120,80,40,.15) 45px,rgba(120,80,40,.05) 48px,transparent 52px),
+  radial-gradient(circle at 78% 14%,rgba(150,100,50,.10),transparent 26px),
+  radial-gradient(circle at 9% 33%,rgba(150,100,50,.09),transparent 20px),
+  radial-gradient(circle at 63% 71%,rgba(150,100,50,.07),transparent 30px),
+  radial-gradient(circle at 92% 88%,rgba(150,100,50,.1),transparent 24px),
+  radial-gradient(ellipse at 50% 48%,transparent 42%,rgba(130,90,40,.16) 100%),
+  linear-gradient(115deg,rgba(255,250,235,.4),transparent 30%)}
+
+/* letter */
+.letter{max-width:560px;display:flex;flex-direction:column;gap:clamp(6px,1.2vh,12px);padding:6px 0 6px}
+.ln{position:relative;font-family:var(--hand);font-size:var(--fs);line-height:1.08;color:var(--ink-pen);
+  animation:wipe .55s cubic-bezier(.4,.1,.3,1) both;animation-delay:calc(var(--i)*.3s);animation-fill-mode:backwards}
+@keyframes wipe{from{clip-path:inset(-80px 100% -80px 0)}to{clip-path:inset(-80px -700px -80px 0)}}
+.skip .ln,.skip .fade{animation:none}
+.hello{padding-left:calc(4*var(--u))}.live{padding-left:calc(22*var(--u))}.draw{padding-left:calc(40*var(--u));margin-top:.4em}.photo-ln{padding-left:calc(14*var(--u))}
+.sign{margin-top:.2em}
+.sign img{width:calc(181*var(--u));height:auto;display:block;margin-left:calc(60*var(--u));mix-blend-mode:multiply}
+.fade{animation:fadeIn .9s ease both;animation-delay:calc(1.3s + var(--i)*.35s)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* links with crayon underline */
+.l{display:inline-block;text-decoration:none;color:inherit;--c:var(--c-art)}
+.l.photo-l{--c:var(--c-photo)}.l.work-l{--c:var(--c-work)}
+.seg{position:relative;display:inline-block;padding-bottom:.16em;white-space:nowrap}
+.seg svg{position:absolute;left:-2%;bottom:-.02em;width:104%;height:.3em;overflow:visible;pointer-events:none;filter:url(#crayon)}
+.seg path{fill:none;stroke:var(--c);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s cubic-bezier(.5,0,.2,1)}
+.seg path+path{stroke-width:1.5;opacity:.3;stroke-dashoffset:0;transition:opacity .4s}
+.l:hover path+path,.l:focus-visible path+path{opacity:.55}
+.l:hover path,.l:focus-visible path{stroke-dashoffset:0}
+.l:focus-visible{outline:none}
+@media (hover:none){.seg path{stroke-dashoffset:0}}
+@media (max-width:620px){.dbr{display:none}}
+
+/* hover previews (photocopy style), anchored to the paragraph */
+.l{position:static}
+.pv{position:absolute;left:calc(100% + 8px);top:-.2em;width:150px;pointer-events:none;opacity:0;transform:translateY(18px) rotate(2deg);
+  transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1);z-index:30;font-family:var(--f-type);font-size:10px;line-height:1.3;color:var(--ink-soft);letter-spacing:.03em;text-transform:none}
+.pv img{width:100%;height:auto;filter:sepia(.75) contrast(1.1) brightness(.98);border:1px solid rgba(60,40,20,.3);background:#f3ead7;padding:5px;box-shadow:0 6px 14px rgba(40,35,20,.18)}
+.pv span{display:block;margin-top:5px}
+.pv.card{width:170px;padding:16px 12px;border:1.5px dashed var(--c-work);color:var(--c-work);text-align:center;background:var(--sheet)}
+.pv.card b{display:block;font-weight:400;font-size:15px;letter-spacing:.08em}.pv.card i{display:block;font-style:normal;margin-top:6px;font-size:12px}
+.l:hover .pv,.l:focus-visible .pv{opacity:1;transform:rotate(2deg)}
+.l:hover .pv.card,.l:focus-visible .pv.card{transform:rotate(-3deg)}
+@media (hover:none),(max-width:1000px){.pv{display:none}}
+
+/* things on the desk */
+.sheet>.pieces{position:absolute;inset:0;pointer-events:none;z-index:2}
+.pieces>*{position:absolute}
+.cut{top:clamp(28px,5vw,54px);right:clamp(18px,4vw,50px);width:clamp(120px,16vw,168px);margin:0;transform:rotate(2.5deg)}
+.cut img{width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.7) contrast(.95)}
+.cut figcaption{font-family:var(--f-type);font-size:11px;line-height:1.35;color:var(--ink-soft);letter-spacing:.02em;margin-top:6px;text-align:right}
+.stamp{right:clamp(20px,4.5vw,56px);bottom:clamp(100px,14vw,130px);transform:rotate(-3deg)}
+.archive{font-family:var(--f-type);text-align:center;font-size:10.5px;line-height:1.45;letter-spacing:.06em;border:1.5px dashed rgba(70,50,30,.55);padding:8px 12px;color:rgba(60,42,24,.7);filter:url(#rough);text-transform:lowercase}
+.archive b{font-weight:400;font-size:14px;letter-spacing:.14em;text-transform:uppercase;display:block;color:rgba(50,35,18,.8)}
+.dstamp{right:clamp(20px,4.5vw,56px);bottom:42px;transform:rotate(-5deg);font-family:var(--f-type);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(140,58,30,.7);border:2px solid rgba(140,58,30,.55);filter:url(#rough);border-radius:3px;padding:5px 10px 4px;mix-blend-mode:multiply;box-shadow:inset 0 0 0 2px rgba(236,225,203,.6),inset 0 0 0 3px rgba(140,58,30,.35);white-space:nowrap}
+.dstamp small{display:block;font-size:8.5px;letter-spacing:.22em;text-align:center;border-top:1px solid rgba(140,58,30,.45);margin-top:3px;padding-top:2px}
+/* print tucked under the sheet edge, held with a strip of tape */
+.print{position:absolute;z-index:1;margin:0;width:clamp(150px,17vw,190px);right:-92px;top:150px;transform:rotate(5deg)}
+.print .p{position:relative;background:#f3ead7;padding:7px;box-shadow:0 1px 1px rgba(40,35,20,.2),0 10px 20px rgba(40,35,20,.15)}
+.print img{width:100%;height:auto;filter:sepia(.45) saturate(.8) contrast(.94) brightness(.96)}
+.print .p::after{content:"";position:absolute;inset:7px;pointer-events:none;mix-blend-mode:multiply;opacity:.7;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .22  0 0 0 0 .1  0 0 0 -1.3 .9'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23d)'/%3E%3C/svg%3E")}
+.tape{position:absolute;z-index:3;left:62%;top:-12px;width:78px;height:24px;margin-left:-39px;transform:rotate(-4deg);background:rgba(214,190,130,.75);box-shadow:0 1px 2px rgba(40,35,20,.15);
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 22%,100% 48%,96% 72%,100% 100%,10% 100%,6% 90%,3% 100%,0 92%,3% 55%,0 30%)}
+
+/* side index (desktop: left edge) */
+.idx{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;font-family:var(--f-type);font-size:15px}
+.idx h2{margin:0 0 10px;font:400 10px var(--f-type);letter-spacing:.2em;text-transform:uppercase;color:var(--sepia)}
+.idx a{color:var(--sepia)}
+.idx a{position:relative;display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:11px 26px 11px 12px;margin-bottom:-1px;background:#eadfc8;border:1px solid var(--tan);border-left:3px solid var(--c);
+  --c:var(--c-art);transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 1px 2px rgba(40,35,20,.06)}
+.idx a:nth-of-type(2){--c:var(--c-photo)}.idx a:nth-of-type(3){--c:var(--c-work)}
+.idx a b{font-weight:400;font-size:11px;color:var(--ink-soft)}
+.idx a:hover,.idx a:focus-visible{transform:translateX(8px);box-shadow:0 6px 14px rgba(40,35,20,.1)}
+.idx a:hover path,.idx a:focus-visible path{stroke-dashoffset:0}
+.idx a:hover path+path,.idx a:focus-visible path+path{opacity:.55}
+.idx a:focus-visible{outline:1px dashed var(--ink);outline-offset:3px}
+
+
+/* about page: a second, typed sheet below the letter */
+.lp .stage{row-gap:0}
+.about-wrap{margin-top:70px;position:relative}
+.sheet2{padding:clamp(30px,5vw,52px) clamp(22px,6vw,64px) 40px}
+.about-wrap .sheet-shadow{transform:rotate(.35deg)}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+.about-t h2,.press h2{margin:0 0 16px;font:400 12px var(--f-type);letter-spacing:.24em;text-transform:uppercase;color:var(--c-work)}
+.about-t p{margin:0 0 14px;font-family:var(--f-type);font-size:15px;line-height:1.7;color:var(--sepia);max-width:62ch;text-wrap:pretty}
+.about-t p:first-of-type::first-letter{font-size:1.5em;line-height:1}
+.about-t details summary{list-style:none;cursor:pointer;display:inline-block;font:400 13px var(--f-type);letter-spacing:.08em;color:var(--c-work);border-bottom:1.5px dashed currentColor;margin:2px 0 14px}
+.about-t details summary::-webkit-details-marker{display:none}
+.about-t details summary:hover,.about-t details summary:focus-visible{outline:none;border-bottom-style:solid}
+.about-t details[open] summary{display:none}
+.about-t h3{margin:26px 0 6px;font:400 12px var(--f-type);letter-spacing:.18em;text-transform:uppercase;color:var(--sepia)}
+.press{position:relative;background:#efe5d0;border:1px solid var(--tan);padding:20px 20px 18px;box-shadow:0 1px 2px rgba(50,35,15,.2),0 10px 20px rgba(50,35,15,.12);transform:rotate(-1deg);align-self:start;font-family:var(--f-type);font-size:12.5px;line-height:1.5;color:var(--sepia)}
+.press .tape{left:50%;top:-12px;margin-left:-39px}
+.press ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:12px}
+.press li small{display:block;color:#7a6a50;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.press h3{margin:0 0 8px;font:400 10.5px var(--f-type);letter-spacing:.2em;text-transform:uppercase;color:#7a6a50;border-top:1px solid var(--tan);padding-top:12px}
+.press h3:first-of-type{border:0;padding:0}
+.press a{color:var(--sepia);text-decoration:none;background:linear-gradient(var(--c-work),var(--c-work)) 0 100%/100% 1px no-repeat;transition:background-size .3s,color .2s}
+.press a:hover,.press a:focus-visible{color:var(--c-work);background-size:100% 2px;outline:none}
+@media (min-width:900px){.about-grid{grid-template-columns:minmax(0,1fr) 250px;gap:48px}}
+
+/* elsewhere: a typed index card */
+.elsewhere{position:absolute;z-index:3;left:calc(100% - 8px);bottom:36px;width:286px;background:#efe5d0;border:1px solid var(--tan);padding:0 0 14px;transform:rotate(1.2deg);box-shadow:0 1px 2px rgba(40,35,20,.15),0 12px 22px rgba(40,35,20,.09);font-family:var(--f-type);font-size:12.5px}
+.elsewhere::before{content:"";position:absolute;inset:36px 0 0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 25px,rgba(110,80,40,.2) 25px 26px)}
+.elsewhere h2{margin:0;padding:12px 16px 8px;font-weight:400;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-work);border-bottom:1.5px solid rgba(168,70,31,.55);position:relative}
+.elsewhere ul{list-style:none;margin:0;padding:10px 16px 0;position:relative}
+.elsewhere li{height:26px;display:flex;align-items:baseline;gap:8px;white-space:nowrap;overflow:hidden}
+.elsewhere li:last-child a{font-size:11px}
+.elsewhere li i{font-style:normal;color:#7a6a50;width:60px;flex:none;font-size:10.5px;letter-spacing:.04em}
+.elsewhere a{text-decoration:none;color:var(--sepia);background:linear-gradient(var(--c-photo),var(--c-photo)) 0 100%/0 1.5px no-repeat;transition:background-size .35s,color .2s;overflow:hidden;text-overflow:ellipsis}
+.elsewhere a:hover,.elsewhere a:focus-visible{background-size:100% 1.5px;color:var(--c-photo);outline:none}
+.elsewhere a:focus-visible{outline:1px dashed var(--ink);outline-offset:2px}
+
+@media (max-width:1380px){
+  .lp .stage{margin-left:max(190px,calc(50% - 450px));margin-right:auto}
+}
+@media (max-width:1280px){
+  .elsewhere{position:relative;left:auto;bottom:auto;width:min(100%,330px);margin:34px 0 0 auto;transform:rotate(1deg)}
+  .elsewhere li i{width:70px}
+  .print{right:-4px}
+}
+@media (max-width:1020px){
+  .lp .stage{margin-left:auto;margin-right:auto;padding:0 16px}
+  .print{right:-6px;width:130px;top:auto;bottom:-70px}
+  .elsewhere{margin-top:96px}
+  .idx{left:0;right:0;top:auto;bottom:0;transform:none;flex-direction:row;background:#e4d8c0;border-top:1px solid var(--tan);z-index:60}
+  .idx h2{display:none}
+  .idx a{flex:1;justify-content:center;border:0;border-top:3px solid var(--c);margin:0;padding:13px 6px 15px;box-shadow:none;background:transparent;font-size:14px}
+  .idx a:hover,.idx a:focus-visible{transform:none;box-shadow:none}
+  html:has(body.lp){background:#d8ccb3}
+body.lp{background:#d8ccb3;padding-bottom:84px}
+}
+@media (max-width:719px){
+  body.lp{padding-top:58px}
+  .print{display:none}
+  .elsewhere{margin-top:40px}
+  .letter{max-width:100%}
+  .sheet>.pieces{position:static;display:grid;grid-template-columns:104px 1fr;gap:12px 10px;align-items:center;margin-top:18px}
+  .pieces>*{position:relative;right:auto;bottom:auto;top:auto;margin:0}
+  .pieces>.cut{width:104px;grid-row:1/3;justify-self:start}
+  .pieces>.stamp{justify-self:end}
+  .pieces>.dstamp{justify-self:end;margin-right:6px}
+}
+</style>
+</head>
+<body class="lp">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="2" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.35" result="gA"/><feComposite in="d" in2="gA" operator="in"/></filter>
+  <filter id="crayon" x="-3%" y="-120%" width="106%" height="340%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3" result="gA"/><feComposite in="d" in2="gA" operator="in"/></filter>
+</defs></svg>
 
 <a class="chrome-brand" href="index.html">T. Sathyadass</a>
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
@@ -47,45 +204,102 @@
 <div class="pin pin-l mono">&copy; 2026 Tharan Sathyadass</div>
 <div class="pin pin-r mono"><a href="mailto:tharan.y.sathyadass@gmail.com">mail</a> / <a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram</a></div>
 
-<main id="top">
-<section class="landing wrap">
-  <img class="hw hw-hello" src="images/handwriting/hello.png" alt="Handwritten: Hello" width="157" height="121">
-  <img class="hw hw-name" src="images/handwriting/my-name-is-tharan.png" alt="Handwritten: My name is Tharan" width="631" height="172">
-  <h1>Tharan<br>Sathyadass</h1>
-  <p class="tagline">Artist | Entrepreneur | Photographer, Bangalore</p>
-  <nav class="landing-links" aria-label="Sections">
-    <a href="art.html">Art</a>
-    <a href="photos.html">Photography</a>
-    <a href="run-club.html">Work</a>
-  </nav>
-</section>
-</main>
+<nav class="idx" aria-label="Sections">
+  <h2>index</h2>
+  <a href="art.html"><b>01</b> <span class="seg">Art<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span></a>
+  <a href="photos.html"><b>02</b> <span class="seg">Photography<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span></a>
+  <a href="run-club.html"><b>03</b> <span class="seg">Work<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span></a>
+</nav>
 
-<footer class="foot">
- <div class="wrap">
-  <div class="foot-cols">
-    <div id="about" class="about">
-      <h3 class="mono small">about</h3>
-      <p>Tharan is a photographer and artist based in Bangalore, focused on people and their surroundings. His work is mostly travel and interdisciplinary visual art, shaped by a background in sport and the outdoors.</p>
-      <p>Alongside the work he co-founded Kothanur Run Club and founded The ArtWave.</p>
-      <img class="hw hw-sign" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88">
-    </div>
-    <div id="contact">
-      <h3 class="mono small">contact</h3>
-      <ul class="links mono">
-        <li><a href="https://instagram.com/th.sathyadass" target="_blank" rel="noopener">instagram / th.sathyadass <small>(art)</small></a></li>
-        <li><a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram / tharansathyadass</a></li>
-        <li><a href="https://behance.net/tharansathyad" target="_blank" rel="noopener">behance / tharansathyad</a></li>
-        <li><a href="https://linkedin.com/in/tharan-sathyadass-37b19a311" target="_blank" rel="noopener">linkedin / tharan-sathyadass</a></li>
-        <li><a href="mailto:tharan.y.sathyadass@gmail.com">email / tharan.y.sathyadass@gmail.com</a></li>
+<div class="stage" id="stage">
+  <div class="sheet-wrap">
+    <div class="sheet-shadow"><div class="sheet" id="sheet">
+      <!-- SLOT: short "about" block and "published & press" mention go below the letter (inside .sheet), before .pieces -->
+      <main class="letter">
+        <h1 class="sr">Tharan Sathyadass</h1>
+        <div class="ln hello" style="--i:0">Hi, I&rsquo;m Tharan.</div>
+        <div class="ln live" style="--i:1">I live in Kothanur, Bangalore,<br>and I like making things.</div>
+        <div class="ln draw" style="--i:2">
+          <a class="l" href="art.html"><span class="seg">I draw &mdash; mostly charcoal.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span>
+            <span class="pv" aria-hidden="true"><img src="images/works/thumb/charcoal-16.jpg" alt="" width="700" height="506"><span>charcoal study</span></span></a>
+        </div>
+        <div class="ln photo-ln" style="--i:3">
+          <a class="l photo-l" href="photos.html"><span class="seg">I take photographs<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span><br class="dbr">
+            <span class="seg">of the people and the<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span> <span class="seg">places they live.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span>
+            <span class="pv" aria-hidden="true"><img src="images/works/thumb/godavari-12.jpg" alt="" width="525" height="700"><span>boat, photograph</span></span></a>
+        </div>
+        <div class="ln work-ln" style="--i:4">
+          <a class="l work-l" href="run-club.html"><span class="seg">And I run &mdash;<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span> <span class="seg">with the Kothanur Run Club,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span><br class="dbr">
+            <span class="seg">which I co-founded,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span> <span class="seg">and The ArtWave,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span><br class="dbr">
+            <span class="seg">which brings artists<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span> <span class="seg">together.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span>
+            <span class="pv card" aria-hidden="true"><b>KOTHANUR RUN CLUB</b><i>and The ArtWave</i></span></a>
+        </div>
+        <div class="ln sign" style="--i:5"><img src="images/handwriting/tharan.png" alt="Tharan" width="181" height="88"></div>
+      </main>
+
+      <div class="pieces">
+        <figure class="cut fade" style="--i:0"><img src="images/works/cut/thumb/charcoal-15.png" alt="Charcoal drawing of an elephant" width="511" height="700"><figcaption>no. 15 &mdash; elephant,<br>charcoal on paper</figcaption></figure>
+        <div class="stamp fade" style="--i:2" aria-hidden="true"><div class="archive">artwork from <b>ARCHIVE</b>in charge of Tharan Sathyadass *</div></div>
+        <div class="dstamp fade" style="--i:3" aria-hidden="true">Bangalore &middot; 2026<small>kothanur</small></div>
+      </div>
+    </div></div>
+    <figure class="print fade" style="--i:1"><span class="tape" aria-hidden="true"></span><div class="p"><img src="images/works/thumb/godavari-21.jpg" alt="Cover of the zine By the Godavari" width="525" height="700"></div></figure>
+    <aside class="elsewhere fade" style="--i:4" id="contact" aria-label="Elsewhere">
+      <h2>elsewhere</h2>
+      <ul>
+        <li><i>insta (art)</i><a href="https://www.instagram.com/th.sathyadass" target="_blank" rel="noopener">th.sathyadass</a></li>
+        <li><i>instagram</i><a href="https://www.instagram.com/tharansathyadass" target="_blank" rel="noopener">tharansathyadass</a></li>
+        <li><i>behance</i><a href="https://www.behance.net/tharansathyad" target="_blank" rel="noopener">tharansathyad</a></li>
+        <li><i>linkedin</i><a href="https://www.linkedin.com/in/tharan-sathyadass-37b19a311" target="_blank" rel="noopener">tharan-sathyadass</a></li>
+        <li><i>email</i><a href="mailto:tharan.y.sathyadass@gmail.com">tharan.y.sathyadass@gmail.com</a></li>
       </ul>
-    </div>
+    </aside>
   </div>
-  <div class="foot-base mono small">&copy; 2026 Tharan Sathyadass &middot; Bangalore <span class="foot-sign"><span class="note">thanks for looking</span> <img class="hw hw-foot" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88"></span></div>
- </div>
-</footer>
 
-<script src="journal.js"></script>
+  <section class="about-wrap" id="about" aria-labelledby="about-h">
+    <div class="sheet-shadow"><div class="sheet sheet2">
+      <div class="about-grid">
+        <div class="about-t">
+          <h2 id="about-h">about</h2>
+          <p>Tharan Sathyadass is a Bangalore-based Indian artist and photographer whose practice centres on capturing the relationship between people and their surroundings. Through a thoughtful and immersive approach, he documents everyday spaces, communities and shifting landscapes. Primarily working in travel photography along with interdisciplinary visual art, his work blends storytelling with artistic interpretation, highlighting mood, memory, emotions and the subtle narrative of space.</p>
+          <p>Rooted in real, unfiltered environments rather than staged frames, his photographs come from the streets, travels, rural terrain, youth cultures, and fleeting everyday encounters. With a background deeply connected to sport and outdoor life, he brings a heightened awareness of movement, posture and spatial relationships, giving his work an honesty and physical presence where humans, energy and environments coexist.</p>
+          <details>
+            <summary>read more &rarr;</summary>
+            <p>His photojournals have been published by the Museum of Art &amp; Photography (MAP), positioning his practice within conversations on visual culture and contemporary image-making.</p>
+            <p>Alongside his artistic work, Tharan is actively involved in cultivating community-driven creative spaces. He is a co-founder of Kothanur Run Club, a youth-led social fitness collective that brings people together through large-scale community runs and shared movement. He also founded The ArtWave, a platform dedicated to hosting workshops and exhibitions that support local and emerging artists, encouraging collaboration and wider visibility. Together, these initiatives strengthen his engagement with collective energy, rhythm, and the dynamics of human connection, which in turn continues to shape his visual practice.</p>
+            <p>Tharan continues to develop a body of work that connects art, environment, and human experience. Through an intuitive visual language, he observes, documents, and thoughtfully reflects the worlds he moves through, capturing moments that linger beyond the frame.</p>
+            <h3>Kothanur Run Club</h3>
+            <p>Co-founded by Tharan, this social fitness club brings together large communities, inculcating movement, culture and shared experiences. Defying various societal expectations, this initiative has organised large-scale runs and continues to build a growing fitness community rooted in connection rather than competition.</p>
+            <h3>The ArtWave</h3>
+            <p>A creative platform, led and co-owned by Tharan, that organises workshops and exhibitions to support local and emerging artists, fostering accessible spaces for collaboration, visibility, and creative exchange. It encourages meaningful dialogue between art, community and lived experiences.</p>
+          </details>
+        </div>
+        <aside class="press" aria-label="Published and press">
+          <span class="tape" aria-hidden="true"></span>
+          <h2>published &amp; press</h2>
+          <h3>photojournals, MAP</h3>
+          <ul>
+            <li><a href="https://www.pulse-map.in/volume-6-photography/a-taste-of-everywhere" target="_blank" rel="noopener">a Taste of Everywhere</a><small>Museum of Art &amp; Photography</small></li>
+            <li><a href="https://www.pulse-map.in/volume-3/photography/lives-on-mall-road" target="_blank" rel="noopener">Lives on mall road</a><small>Museum of Art &amp; Photography</small></li>
+          </ul>
+          <h3>press</h3>
+          <ul>
+            <li><a href="https://www.indulgexpress.com/events/bangalore/2025/Oct/10/this-weekend-run-club-traces-how-a-small-jog-with-friends-turned-kothanur-into-the-place-to-be" target="_blank" rel="noopener">putting Kothanur on the Map</a><small>Indulge Express, Oct 2025 &middot; KRC</small></li>
+          </ul>
+        </aside>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var st=document.getElementById('stage'), reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ev=['pointerdown','wheel','keydown','touchstart','scroll'];
+  function skip(){st.classList.add('skip');ev.forEach(function(e){removeEventListener(e,skip)})}
+  if(reduced){skip()}else{ev.forEach(function(e){addEventListener(e,skip,{passive:true})});setTimeout(function(){st.classList.add('skip')},4600)}
+})();
+</script>
 <script src="script.js"></script>
 </body>
 </html>
