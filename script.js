@@ -13,17 +13,21 @@
   var rot = ['r-l', 'r-r', 'r-l2', 'r-r'];
   var counters = {};
   works.forEach(function (w, i) {
-    var host = document.querySelector('.collage[data-section="' + w.section + '"]');
+    var host = document.querySelector(w.series ? '.collage[data-series="' + w.series + '"]' : '.collage[data-section="' + w.section + '"]');
     if (!host) return;
-    var n = counters[w.section] = (counters[w.section] || 0) + 1;
+    var key = w.series || w.section;
+    var n = counters[key] = (counters[key] || 0) + 1;
     var title = w.title || 'Untitled';
     var cap = 'No. ' + pad(i + 2) + ' — ' + title; // No. 001 is the cover
     var meta = [w.year, w.medium].filter(Boolean).join(', ');
-    var f = el('figure', 'work ' + (w.shape || 'land') + ' ' + rot[(n - 1) % rot.length]);
-    f.dataset.full = 'images/' + w.file;
+    var f = el('figure', 'work ' + ((w.w >= w.h * 1.05 ? 'land' : w.h >= w.w * 1.05 ? 'port' : 'sq')) + ' ' + rot[(n - 1) % rot.length] + (w.cover ? ' cover' : ''));
+    if (w.w && w.h) f.style.setProperty('--ar', w.w + ' / ' + w.h);
+    f.dataset.full = 'images/works/' + w.file;
     f.dataset.cap = cap + (meta ? ' (' + meta + ')' : '');
     var img = el('img');
-    img.src = 'images/' + w.file;
+    img.src = 'images/works/thumb/' + w.file;
+    if (w.w && w.h) { img.width = w.w; img.height = w.h; }
+    img.loading = 'lazy';
     img.alt = title + (w.section === 'photography' ? ' (photograph)' : ' (' + w.section + ')');
     f.appendChild(img);
     if (n % 2 === 1 || w.section !== 'photography') f.appendChild(el('span', 'tape ' + (n % 2 ? 't1' : 't2')));

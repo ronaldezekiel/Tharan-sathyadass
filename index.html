@@ -41,7 +41,7 @@
   <a class="brand" href="#top">T. Sathyadass <span>/ index</span></a>
   <nav class="index" aria-label="Sections">
     <a href="#charcoal">01 charcoal</a>
-    <a href="#canvas">02 canvas</a>
+    <a href="#canvas">02 colour</a>
     <a href="#photography">03 photography</a>
     <a href="run-club.html">04 run club</a>
     <a href="#press">05 published &amp; press</a>
@@ -57,10 +57,10 @@
 <section class="hero wrap">
   <div class="hero-grid">
 
-    <figure class="work hero-img land" data-full="images/image01.jpg" data-cap="No. 001 — cover">
-      <img src="images/image01.jpg" alt="Cover image by Tharan Sathyadass" loading="eager">
+    <figure class="work hero-img port" data-full="images/works/charcoal-15.jpg" data-cap="No. 001 — Elephant (charcoal)">
+      <img src="images/works/thumb/charcoal-15.jpg" alt="Elephant, charcoal drawing by Tharan Sathyadass" width="511" height="700" loading="eager">
       <span class="tape t1"></span><span class="tape t2"></span>
-      <figcaption class="tag">No. 001 — cover</figcaption>
+      <figcaption class="tag">No. 001 — Elephant</figcaption>
     </figure>
 
     <div class="hero-text">
@@ -102,7 +102,7 @@
 
 <!-- ============ 01 CHARCOAL ============ -->
 <section id="charcoal" class="sec wrap">
-  <header class="sec-head"><span class="num">01</span><h2>Charcoal</h2><span class="note">sketches, smudged thumbs and all</span></header>
+  <header class="sec-head"><span class="num">01</span><h2>Charcoal &amp; Ink</h2><span class="note">sketches, smudged thumbs and all</span></header>
   <!-- Artworks are rendered from works.js (edit titles there). -->
   <div class="collage c2" data-section="charcoal">
     <svg class="scrib s-sec" viewBox="0 0 200 40" aria-hidden="true"><path class="crayon blue" d="M4 24 C 40 6, 70 40, 110 18 S 170 30, 196 10"/></svg>
@@ -112,8 +112,8 @@
 
 <!-- ============ 02 CANVAS ============ -->
 <section id="canvas" class="sec wrap">
-  <header class="sec-head"><span class="num">02</span><h2>Canvas</h2><span class="note">paint, on cloth, on walls of rooms</span></header>
-  
+  <header class="sec-head"><span class="num">02</span><h2>Colour</h2><span class="note">paint, on cloth, on walls of rooms</span></header>
+  <!-- TODO: canvas paintings to come -->
   <div class="collage c2 flip" data-section="canvas">
     <svg class="scrib s-sec" viewBox="0 0 120 120" aria-hidden="true"><path class="crayon green" d="M14 60 C 14 20, 100 14, 106 56 C 110 96, 30 106, 22 70"/></svg>
   </div>
@@ -123,8 +123,13 @@
 <!-- ============ 03 PHOTOGRAPHY ============ -->
 <section id="photography" class="sec wrap">
   <header class="sec-head"><span class="num">03</span><h2>Photography</h2><span class="note">people &amp; their surroundings</span></header>
-  <div class="collage photo" data-section="photography">
-  </div>
+  <!-- TODO: confirm series name with Ron (album was called "ArtWave 2") -->
+  <div class="series" id="series-godavari"><h3>By the Godavari</h3><span class="note">amalapuram, march 2026</span></div>
+  <div class="collage photo" data-series="godavari"></div>
+  <div class="series" id="series-streets"><h3>Streets &amp; markets</h3><span class="note">people, stalls, small moments</span></div>
+  <div class="collage photo" data-series="streets"></div>
+  <div class="series" id="series-coast"><h3>Coast &amp; city</h3><span class="note">light, sand and sea</span></div>
+  <div class="collage photo" data-series="coast"></div>
   <noscript><p class="note nojs">turn on JavaScript to see this gallery</p></noscript>
 </section>
 
