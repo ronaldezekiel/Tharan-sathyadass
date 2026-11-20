@@ -19,7 +19,7 @@ window.WORKS = [
   { id:'w08', file:'charcoal-07.jpg', section:'charcoal', title:'Cow', year:'', medium:'ink', w:482, h:700 }, // working title
   { id:'w09', file:'charcoal-08.jpg', section:'charcoal', title:'Elephant, line sketch', year:'', medium:'ink', w:495, h:700 }, // working title
   { id:'w10', file:'charcoal-17.jpg', section:'charcoal', title:'Clouds', year:'', medium:'print', w:700, h:511 }, // working title
-  { id:'w11', file:'charcoal-11.jpg', section:'canvas', title:'Building with dogs', year:'', medium:'watercolour', w:525, h:700 }, // working title
+  { id:'w11', file:'charcoal-11.jpg', section:'charcoal', title:'Building with dogs', year:'', medium:'watercolour', w:525, h:700 }, // working title
   { id:'w12', file:'godavari-21.jpg', section:'photography',series:'godavari',cover:true, title:'By the Godavari (cover)', year:'', medium:'', w:525, h:700 }, // working title
   { id:'w13', file:'godavari-07.jpg', section:'photography',series:'godavari', title:'Untitled', year:'', medium:'', w:525, h:700 }, // TODO title
   { id:'w14', file:'godavari-08.jpg', section:'photography',series:'godavari', title:'Untitled', year:'', medium:'', w:525, h:700 }, // TODO title

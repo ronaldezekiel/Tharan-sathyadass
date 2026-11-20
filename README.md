@@ -4,7 +4,7 @@ Static site: no build step, no server. Open `index.html`, or publish as-is.
 
 ## Add or edit artworks — `works.js`
 Each artwork is one line in `works.js`:
-`{ id, file, section: 'charcoal'|'canvas'|'photography', series (photography only: 'godavari'|'streets'|'coast'), cover (optional), title, year, medium, w, h }`.
+`{ id, file, section: 'charcoal'|'photography', series (photography only: 'godavari'|'streets'|'coast'), cover (optional), title, year, medium, w, h }`.
 `w`/`h` are the pixel size of the thumbnail (they set the card shape and prevent layout shift).
 Change `title` ("Untitled" = `// TODO title`; `// working title` = guessed); `year` and `medium` are optional (`''` hides).
 Order in the file sets display order and catalogue number ("No. 004 — Title"; No. 001 is the hero in `index.html`).
@@ -26,4 +26,4 @@ Optional `link: { href, label }` for press links. Each entry has its own anchor,
 3. The site appears at `https://<user>.github.io/<repo>/`. All paths are relative, so it works under that sub-path.
 
 ## Open TODOs
-Artwork titles, canvas paintings, series name for "Coast & city" (confirm with Ron), club founding date, Indulge Express URL, run club Instagram, ArtWave link.
+Artwork titles, club founding date, Indulge Express URL, run club Instagram, ArtWave link.
