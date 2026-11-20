@@ -7,19 +7,21 @@
    title   : shown as  "No. 004 — <title>"   ("// working title" = guessed, please confirm)
    year, medium : optional, hidden when empty ('')
    w, h    : pixel size of the thumb (sets card shape, avoids layout shift). Re-run image prep if you swap a file.
+   cut     : true = transparent cut-out PNG at images/works/cut/<name>.png (+ cut/thumb/), drawn straight on the page
+   span    : charcoal only: grid columns out of 12 on desktop (sets the drawing's size)
    cover   : true = shown larger, first in its series
    ------------------------------------------------------------------ */
 window.WORKS = [
-  { id:'w02', file:'charcoal-15.jpg', section:'charcoal', title:'Elephant', year:'', medium:'charcoal', w:511, h:700 }, // working title
-  { id:'w03', file:'charcoal-04.jpg', section:'charcoal', title:'Woman with earrings', year:'', medium:'charcoal', w:663, h:700 }, // working title
-  { id:'w04', file:'charcoal-16.jpg', section:'charcoal', title:'Leopard on a branch', year:'', medium:'charcoal', w:700, h:511 }, // working title
-  { id:'w05', file:'charcoal-06.jpg', section:'charcoal', title:'Leopard resting', year:'', medium:'charcoal', w:700, h:525 }, // working title
-  { id:'w06', file:'charcoal-02.jpg', section:'charcoal', title:'Woman portrait', year:'', medium:'pen', w:537, h:700 }, // working title
-  { id:'w07', file:'charcoal-03.jpg', section:'charcoal', title:'Man in a turban', year:'', medium:'pen', w:495, h:700 }, // working title
-  { id:'w08', file:'charcoal-07.jpg', section:'charcoal', title:'Cow', year:'', medium:'ink', w:482, h:700 }, // working title
-  { id:'w09', file:'charcoal-08.jpg', section:'charcoal', title:'Elephant, line sketch', year:'', medium:'ink', w:495, h:700 }, // working title
-  { id:'w10', file:'charcoal-17.jpg', section:'charcoal', title:'Clouds', year:'', medium:'print', w:700, h:511 }, // working title
-  { id:'w11', file:'charcoal-11.jpg', section:'charcoal', title:'Building with dogs', year:'', medium:'watercolour', w:525, h:700 }, // working title
+  { id:'w02', file:'charcoal-15.jpg', section:'charcoal', title:'Elephant', year:'', medium:'charcoal', w:511, h:700, cut:true, span:4 }, // working title
+  { id:'w03', file:'charcoal-04.jpg', section:'charcoal', title:'Woman with earrings', year:'', medium:'charcoal', w:531, h:700, cut:true, span:4 }, // working title
+  { id:'w04', file:'charcoal-16.jpg', section:'charcoal', title:'Leopard on a branch', year:'', medium:'charcoal', w:700, h:506, cut:true, span:4 }, // working title
+  { id:'w05', file:'charcoal-06.jpg', section:'charcoal', title:'Leopard resting', year:'', medium:'charcoal', w:700, h:525, cut:true, span:7 }, // working title
+  { id:'w06', file:'charcoal-02.jpg', section:'charcoal', title:'Woman portrait', year:'', medium:'pen', w:493, h:700, cut:true, span:5 }, // working title
+  { id:'w07', file:'charcoal-03.jpg', section:'charcoal', title:'Man in a turban', year:'', medium:'pen', w:505, h:700, cut:true, span:4 }, // working title
+  { id:'w08', file:'charcoal-07.jpg', section:'charcoal', title:'Cow', year:'', medium:'ink', w:481, h:700, cut:true, span:3 }, // working title
+  { id:'w09', file:'charcoal-08.jpg', section:'charcoal', title:'Elephant, line sketch', year:'', medium:'ink', w:527, h:700, cut:true, span:5 }, // working title
+  { id:'w10', file:'charcoal-17.jpg', section:'charcoal', title:'Clouds', year:'', medium:'print', w:700, h:479, cut:true, span:7 }, // working title
+  { id:'w11', file:'charcoal-11.jpg', section:'charcoal', title:'Building with dogs', year:'', medium:'watercolour', w:530, h:700, cut:true, span:5 }, // working title
   { id:'w12', file:'godavari-21.jpg', section:'photography',series:'godavari',cover:true, title:'By the Godavari (cover)', year:'', medium:'', w:525, h:700 }, // working title
   { id:'w13', file:'godavari-07.jpg', section:'photography',series:'godavari', title:'Untitled', year:'', medium:'', w:525, h:700 }, // TODO title
   { id:'w14', file:'godavari-08.jpg', section:'photography',series:'godavari', title:'Untitled', year:'', medium:'', w:525, h:700 }, // TODO title

@@ -9,13 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>
-try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');if(!sessionStorage.getItem('introSeen')){sessionStorage.setItem('introSeen','1');d.classList.add('intro-on')}}}catch(e){}
-</script>
 </head>
-<body>
+<body class="landing-page">
 
-<!-- shared SVG filters + reusable scribbles -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
@@ -25,220 +21,70 @@ try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: redu
       <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.25" result="grainA"/>
       <feComposite in="d" in2="grainA" operator="in"/>
     </filter>
-    <filter id="inkbleed" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="2" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" result="d"/>
-      <feGaussianBlur in="d" stdDeviation="0.5" result="b"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="1" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.15" result="m"/>
-      <feComposite in="b" in2="m" operator="in"/>
-    </filter>
-    <filter id="inkxl" x="-2%" y="-6%" width="104%" height="112%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="3" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="10" result="d"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.3" numOctaves="2" seed="5" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.8" result="m"/>
-      <feComposite in="d" in2="m" operator="in"/>
-    </filter>
-    <filter id="grain" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.22  0 0 0 0 0.15  0 0 0 0.55 0"/>
-    </filter>
+    <filter id="tintR" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .85  0 0 0 0 .2  0 0 0 0 .16  0 0 0 1 0"/></filter>
+    <filter id="tintB" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .16  0 0 0 0 .31  0 0 0 0 .8  0 0 0 1 0"/></filter>
+    <filter id="tintG" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .18  0 0 0 0 .63  0 0 0 0 .35  0 0 0 1 0"/></filter>
+    <filter id="chanR" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="chanG" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="chanB" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
   </defs>
 </svg>
 
-<a class="chrome-brand" href="#top">T. Sathyadass</a>
+<a class="chrome-brand" href="index.html">T. Sathyadass</a>
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
   <svg viewBox="0 0 40 40" aria-hidden="true"><g><path class="hand" d="M20 5 C 18.5 13, 21.5 27, 20 35"/><path class="hand" d="M5 20 C 13 18.5, 27 21.5, 35 20"/></g></svg>
 </button>
 <div class="menu-backdrop" id="menuBackdrop"></div>
-<nav class="menu" id="menu" aria-label="Sections" inert>
-  <a href="#charcoal"><b>01</b> charcoal &amp; ink</a>
-  <a href="#photography"><b>02</b> photography</a>
-  <a href="#runclub"><b>03</b> kothanur run club</a>
-  <a href="#press"><b>04</b> published &amp; press</a>
-  <a href="#artwave"><b>05</b> the artwave</a>
-  <a href="#about"><b>06</b> about</a>
-  <a href="#contact"><b>07</b> contact</a>
-  <a class="menu-ext" href="run-club.html">run club journal &#8599;</a>
+<nav class="menu" id="menu" aria-label="Pages" inert>
+  <a href="index.html" aria-current="page"><b>00</b> home</a>
+  <a href="art.html"><b>01</b> art</a>
+  <a href="photos.html"><b>02</b> photography</a>
+  <a href="run-club.html"><b>03</b> work</a>
+  <a class="menu-sub" href="#about">about</a>
+  <a class="menu-sub" href="#contact">contact</a>
   <span class="note menu-note">thanks for looking</span>
 </nav>
 <div class="pin pin-l mono">&copy; 2026 Tharan Sathyadass</div>
 <div class="pin pin-r mono"><a href="mailto:tharan.y.sathyadass@gmail.com">mail</a> / <a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram</a></div>
 
-<div class="intro" aria-hidden="true"><img class="i-hello" src="images/handwriting/hello.png" alt="" width="157" height="121"><p class="i-name">Tharan<br>Sathyadass</p></div>
-
 <main id="top">
-
-<!-- ============ HERO ============ -->
-<section class="hero wrap">
-  <div class="hero-grid">
-
-    <figure class="work hero-img port" data-full="images/works/charcoal-15.jpg" data-cap="No. 001 — Elephant (charcoal)">
-      <img src="images/works/thumb/charcoal-15.jpg" alt="Elephant, charcoal drawing by Tharan Sathyadass" width="511" height="700" loading="eager">
-      <span class="tape t1"></span><span class="tape t2"></span>
-      <figcaption class="tag">No. 001 — Elephant</figcaption>
-    </figure>
-
-    <div class="hero-text">
-      <div class="hw-greet">
-        <img class="hw hw-hello" src="images/handwriting/hello.png" srcset="images/handwriting/hello.png 157w" alt="Handwritten: Hello" width="157" height="121">
-        <img class="hw hw-name" src="images/handwriting/my-name-is-tharan.png" alt="Handwritten: My name is Tharan" width="631" height="172">
-      </div>
-      <p class="note n1">I make pictures of people &amp; places —</p>
-      <h1>Tharan<br>Sathyadass</h1>
-      <p class="tagline">Artist | Entrepreneur | Photographer, Bangalore</p>
-
-      <div class="oval-wrap">
-        <svg class="arrow" viewBox="0 0 120 90" aria-hidden="true"><g class="crayon red">
-          <path d="M6 10 C 30 4, 60 14, 82 50 C 88 60, 92 68, 96 76"/>
-          <path d="M80 62 L 97 79 L 100 56"/></g></svg>
-        <span class="oval">
-          <svg viewBox="0 0 260 80" preserveAspectRatio="none" aria-hidden="true"><ellipse class="crayon blue" cx="130" cy="40" rx="122" ry="31" transform="rotate(-2 130 40)"/><ellipse class="crayon blue thin" cx="132" cy="41" rx="118" ry="33" transform="rotate(1 130 40)"/></svg>
-          <b>Artist · Photographer</b>
-        </span>
-      </div>
-
-      <div class="stamp-box">
-        <p>artwork from</p>
-        <p class="big">ARCHIVE</p>
-        <p>in charge of</p>
-        <p class="big">Tharan Sathyadass *</p>
-      </div>
-    </div>
-
-    <div class="year" aria-label="2026">
-      <span>20</span><span>26</span>
-    </div>
-
-    <svg class="scrib s-hero1" viewBox="0 0 300 60" aria-hidden="true"><path class="crayon green" d="M4 38 C 30 8, 50 56, 80 26 S 130 52, 160 22 S 220 48, 296 16"/></svg>
-    <svg class="scrib s-hero2" viewBox="0 0 120 120" aria-hidden="true"><path class="crayon red" d="M10 20 C 40 8, 90 14, 108 40 C 120 70, 80 108, 44 100 C 14 92, 12 52, 52 40"/></svg>
-    <i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i>
-  </div>
+<section class="landing wrap">
+  <img class="hw hw-hello" src="images/handwriting/hello.png" alt="Handwritten: Hello" width="157" height="121">
+  <img class="hw hw-name" src="images/handwriting/my-name-is-tharan.png" alt="Handwritten: My name is Tharan" width="631" height="172">
+  <h1>Tharan<br>Sathyadass</h1>
+  <p class="tagline">Artist | Entrepreneur | Photographer, Bangalore</p>
+  <nav class="landing-links" aria-label="Sections">
+    <a href="art.html">Art</a>
+    <a href="photos.html">Photography</a>
+    <a href="run-club.html">Work</a>
+  </nav>
 </section>
-
-<!-- ============ SELECTED WORKS: scroll sequence + marquee ============ -->
-<section class="seq" id="selected" aria-label="Selected works">
-  <div class="seq-stage">
-    <div class="seq-namewrap" aria-hidden="true"><div class="seq-name" id="seqName"><span>Tharan Sathyadass</span></div></div>
-    <div class="seq-label"><span class="mono">selected works</span><span class="note">keep scrolling</span></div>
-    <div class="seq-items" id="seqItems"></div>
-  </div>
-</section>
-
-<div class="marquee-wrap"><div class="marquee" aria-label="Artist, photographer, charcoal, Kothanur Run Club, The ArtWave, Bangalore">
-  <div class="marquee-track">
-    <div class="mq-group"><span>Artist</span><span class="dot-sep">&bull;</span><span>Photographer</span><span class="dot-sep">&bull;</span><span>Charcoal</span><span class="dot-sep">&bull;</span><img class="hw" src="images/handwriting/i-am-from-kothanur-blue.png" alt="" width="750" height="156" loading="lazy"><span>Kothanur Run Club</span><span class="dot-sep">&bull;</span><span>The ArtWave</span><span class="dot-sep">&bull;</span><span>Bangalore</span><span class="dot-sep">&bull;</span></div>
-    <div class="mq-group" aria-hidden="true"><span>Artist</span><span class="dot-sep">&bull;</span><span>Photographer</span><span class="dot-sep">&bull;</span><span>Charcoal</span><span class="dot-sep">&bull;</span><img class="hw" src="images/handwriting/i-am-from-kothanur-blue.png" alt="" width="750" height="156" loading="lazy"><span>Kothanur Run Club</span><span class="dot-sep">&bull;</span><span>The ArtWave</span><span class="dot-sep">&bull;</span><span>Bangalore</span><span class="dot-sep">&bull;</span></div>
-  </div>
-</div>
-</div>
-
-<!-- ============ 01 CHARCOAL ============ -->
-<section id="charcoal" class="sec wrap">
-  <header class="sec-head"><span class="num">01</span><h2>Charcoal &amp; Ink</h2><span class="note">sketches, smudged thumbs and all</span></header>
-  <!-- Artworks are rendered from works.js (edit titles there). -->
-  <div class="collage c2" data-section="charcoal">
-    <svg class="scrib s-sec" viewBox="0 0 200 40" aria-hidden="true"><path class="crayon blue" d="M4 24 C 40 6, 70 40, 110 18 S 170 30, 196 10"/></svg>
-  </div>
-  <noscript><p class="note nojs">turn on JavaScript to see this gallery</p></noscript>
-</section>
-
-<!-- ============ 02 PHOTOGRAPHY ============ -->
-<section id="photography" class="sec wrap">
-  <header class="sec-head"><span class="num">02</span><h2>Photography</h2><span class="note">people &amp; their surroundings</span></header>
-  <!-- TODO: confirm series name with Ron (album was called "ArtWave 2") -->
-  <div class="series" id="series-godavari"><h3>By the Godavari</h3><span class="note">amalapuram, march 2026</span></div>
-  <div class="collage photo" data-series="godavari"></div>
-  <div class="series" id="series-streets"><h3>Streets &amp; markets</h3><span class="note">people, stalls, small moments</span></div>
-  <div class="collage photo" data-series="streets"></div>
-  <div class="series" id="series-coast"><h3>Coast &amp; city</h3><span class="note">light, sand and sea</span></div>
-  <div class="collage photo" data-series="coast"></div>
-  <noscript><p class="note nojs">turn on JavaScript to see this gallery</p></noscript>
-</section>
-
-<!-- ============ 03 RUN CLUB ============ -->
-<section id="runclub" class="sec wrap">
-  <header class="sec-head"><span class="num">03</span><h2>Kothanur Run Club</h2><span class="note">co-founder &middot; the journal</span></header>
-  <div class="textcard r-l">
-    <span class="tape t1"></span>
-    <img class="hw hw-kothanur" src="images/handwriting/i-am-from-kothanur-blue.png" alt="Handwritten: I am from Kothanur" width="750" height="156">
-    <p>Kothanur Run Club is a youth-led social fitness collective. The community runs are about connection, not competition.</p>
-    <p class="mono small">A journal of the journey, growth, socials, events and pictures. <a href="run-club.html">open the full journal &rarr;</a></p>
-    <svg class="scrib s-card" viewBox="0 0 200 40" aria-hidden="true"><path class="crayon red" d="M4 28 C 30 6, 60 38, 96 16 S 160 34, 196 8"/></svg>
-  </div>
-  <p class="mono small jlabel">latest from the journal</p>
-  <ul class="clippings jclips" id="journal-latest" data-count="3"></ul>
-  <noscript><p class="note nojs">turn on JavaScript to see the journal, or <a href="run-club.html">open it here</a></p></noscript>
-  <p class="mono small"><a class="more" href="run-club.html">all journal entries &rarr;</a></p>
-</section>
-
-<!-- ============ 04 PUBLISHED & PRESS ============ -->
-<section id="press" class="sec wrap">
-  <header class="sec-head"><span class="num">04</span><h2>Published &amp; Press</h2><span class="note">in print and online</span></header>
-  <ul class="clippings">
-    <li class="r-l">
-      <span class="mono small">Photojournal · Museum of Art &amp; Photography (MAP)</span>
-      <h3>pulse-map.in, vol. 6 — “a Taste of Everywhere”</h3>
-      <a href="https://pulse-map.in/" target="_blank" rel="noopener">read it &rarr;</a> <!-- TODO: exact URL for volume 6 -->
-    </li>
-    <li class="r-r">
-      <span class="mono small">Photojournal · Museum of Art &amp; Photography (MAP)</span>
-      <h3>pulse-map.in, vol. 3 — “Lives on mall road”</h3>
-      <a href="https://pulse-map.in/" target="_blank" rel="noopener">read it &rarr;</a> <!-- TODO: exact URL for volume 3 -->
-    </li>
-    <li class="r-l2">
-      <span class="mono small">Press · Oct 2025</span>
-      <h3>Indulge Express — “putting Kothanur on the Map”</h3>
-      <a href="run-club.html#press-indulge-express">see it in the journal &rarr;</a> <!-- TODO: article URL -->
-    </li>
-  </ul>
-</section>
-
-<!-- ============ 05 THE ARTWAVE ============ -->
-<section id="artwave" class="sec wrap">
-  <header class="sec-head"><span class="num">05</span><h2>The ArtWave</h2><span class="note">founder</span></header>
-  <div class="textcard r-r">
-    <span class="tape t2"></span>
-    <p>The ArtWave runs workshops and exhibitions for local and emerging artists.</p>
-    <!-- TODO: link to The ArtWave (site / Instagram) -->
-  </div>
-</section>
-
-<!-- ============ 06 ABOUT ============ -->
-<section id="about" class="sec wrap">
-  <header class="sec-head"><span class="num">06</span><h2>About</h2></header>
-  <div class="about">
-    <p>Tharan is a photographer and artist based in Bangalore, focused on people and their surroundings. His work is mostly travel and interdisciplinary visual art, shaped by a background in sport and the outdoors.</p>
-    <p>Alongside the work he co-founded Kothanur Run Club and founded The ArtWave.</p>
-    <img class="hw hw-sign" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88">
-  </div>
-</section>
-
-<!-- ============ 07 CONTACT ============ -->
-<section id="contact" class="sec wrap">
-  <header class="sec-head"><span class="num">07</span><h2>Contact</h2></header>
-  <ul class="links mono">
-    <li><a href="https://instagram.com/th.sathyadass" target="_blank" rel="noopener">instagram / th.sathyadass <small>(art)</small></a></li>
-    <li><a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram / tharansathyadass</a></li>
-    <li><a href="https://behance.net/tharansathyad" target="_blank" rel="noopener">behance / tharansathyad</a></li>
-    <li><a href="https://linkedin.com/in/tharan-sathyadass-37b19a311" target="_blank" rel="noopener">linkedin / tharan-sathyadass</a></li>
-    <li><a href="mailto:tharan.y.sathyadass@gmail.com">email / tharan.y.sathyadass@gmail.com</a></li>
-  </ul>
-</section>
-
 </main>
 
-<footer class="foot wrap mono small">&copy; 2026 Tharan Sathyadass &middot; Bangalore <span class="foot-sign"><span class="note">thanks for looking</span> <img class="hw hw-foot" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88"></span></footer>
+<footer class="foot">
+ <div class="wrap">
+  <div class="foot-cols">
+    <div id="about" class="about">
+      <h3 class="mono small">about</h3>
+      <p>Tharan is a photographer and artist based in Bangalore, focused on people and their surroundings. His work is mostly travel and interdisciplinary visual art, shaped by a background in sport and the outdoors.</p>
+      <p>Alongside the work he co-founded Kothanur Run Club and founded The ArtWave.</p>
+      <img class="hw hw-sign" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88">
+    </div>
+    <div id="contact">
+      <h3 class="mono small">contact</h3>
+      <ul class="links mono">
+        <li><a href="https://instagram.com/th.sathyadass" target="_blank" rel="noopener">instagram / th.sathyadass <small>(art)</small></a></li>
+        <li><a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram / tharansathyadass</a></li>
+        <li><a href="https://behance.net/tharansathyad" target="_blank" rel="noopener">behance / tharansathyad</a></li>
+        <li><a href="https://linkedin.com/in/tharan-sathyadass-37b19a311" target="_blank" rel="noopener">linkedin / tharan-sathyadass</a></li>
+        <li><a href="mailto:tharan.y.sathyadass@gmail.com">email / tharan.y.sathyadass@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base mono small">&copy; 2026 Tharan Sathyadass &middot; Bangalore <span class="foot-sign"><span class="note">thanks for looking</span> <img class="hw hw-foot" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88"></span></div>
+ </div>
+</footer>
 
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lb-close" type="button" aria-label="Close">&times;</button>
-  <button class="lb-nav lb-prev" type="button" aria-label="Previous image">&larr;</button>
-  <button class="lb-nav lb-next" type="button" aria-label="Next image">&rarr;</button>
-  <figure><img alt=""><figcaption aria-live="polite"><span class="lb-cap"></span><span class="lb-count"></span></figcaption></figure>
-</div>
-
-<script src="works.js"></script>
 <script src="journal.js"></script>
 <script src="script.js"></script>
 </body>

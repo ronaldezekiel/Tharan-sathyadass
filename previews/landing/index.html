@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tharan Sathyadass</title>
+<meta name="description" content="Tharan Sathyadass, charcoal artist and photographer from Kothanur, Bangalore.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zeyada&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fafaf8; --ink:#1a1a1a; --ink-soft:#6b6a65; --hair:rgba(26,26,26,.09);
+  --c-art:#4a4a48; --c-photo:#2a4fb5; --c-work:#d6502a;
+  --hand:"Zeyada","Nothing You Could Do",cursive;
+  --f-type:"Special Elite","Courier New",monospace;
+  --u:min(1px,.135vw);           /* scale of the handwriting cutouts: 1px on desktop, shrinks to fit phones */
+  --fs:clamp(30px,8.4vw,48px);
+}
+*{box-sizing:border-box}
+html{background:var(--paper);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-type);overflow-x:clip}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* one sheet, one faint fold */
+.sheet{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:0 24px 28px;
+  background:linear-gradient(to bottom,transparent calc(34% - 1px),var(--hair) calc(34% - 1px),transparent 34%)}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0 0;max-width:1100px;width:100%;margin:0 auto}
+.brand{font-size:14px;letter-spacing:.04em;text-decoration:none}
+.plus{background:none;border:0;padding:6px 8px;margin:-6px -8px;font:300 30px/1 var(--f-type);cursor:pointer;color:var(--ink)}
+.plus:focus-visible,.brand:focus-visible,.foot a:focus-visible,.panel a:focus-visible,.x:focus-visible{outline:1px dashed var(--ink);outline-offset:4px}
+
+/* letter */
+.letter{width:100%;max-width:760px;margin:0 auto;padding:clamp(28px,6vh,64px) 0 40px;display:flex;flex-direction:column;gap:clamp(12px,2vh,20px)}
+.ln{position:relative;font-family:var(--hand);font-size:var(--fs);line-height:1.08;color:var(--ink);
+  animation:wipe .55s cubic-bezier(.4,.1,.3,1) both;animation-delay:calc(var(--i)*.32s);animation-fill-mode:backwards}
+@keyframes wipe{from{clip-path:inset(-80px 100% -80px 0)}to{clip-path:inset(-80px -700px -80px 0)}}
+.skip .ln{animation:none}
+@media (prefers-reduced-motion:reduce){.ln{animation:none}}
+.hello{padding-left:calc(4*var(--u))}
+.live{padding-left:calc(22*var(--u))}
+.draw{padding-left:calc(40*var(--u));margin-top:.5em}
+.photo{padding-left:calc(14*var(--u))}
+.work{padding-left:0}
+.sign{margin-top:.3em}
+.sign img{width:calc(181*var(--u));margin-left:auto;margin-right:calc(40*var(--u));display:block;height:auto}
+
+/* links with crayon underline */
+.l{display:inline-block;text-decoration:none;color:inherit;--c:var(--c-art)}
+.l.photo-l{--c:var(--c-photo)} .l.work-l{--c:var(--c-work)}
+.seg{position:relative;display:inline-block;padding-bottom:.16em;white-space:nowrap}
+@media (max-width:620px){.dbr{display:none}}
+.seg svg{position:absolute;left:-2%;bottom:-.02em;width:104%;height:.3em;overflow:visible;pointer-events:none;filter:url(#crayon)}
+.seg path{fill:none;stroke:var(--c);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s cubic-bezier(.5,0,.2,1)}
+.seg path+path{stroke-width:1.5;opacity:.3;stroke-dashoffset:0;transition:opacity .4s}
+.l:hover path+path,.l:focus-visible path+path{opacity:.55}
+.l:hover path,.l:focus-visible path{stroke-dashoffset:0}
+.l:focus-visible{outline:none}
+@media (hover:none){.seg path{stroke-dashoffset:0}}
+
+/* photocopy preview */
+.pv{position:absolute;right:-190px;top:-.4em;width:150px;pointer-events:none;opacity:0;transform:translateY(18px) rotate(1.5deg);
+  transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1);z-index:5;font-family:var(--f-type);font-size:10px;line-height:1.3;color:var(--ink-soft);letter-spacing:.03em}
+.pv img{width:100%;height:auto;filter:grayscale(1) contrast(1.2) brightness(1.03);border:1px solid rgba(26,26,26,.25);background:#fff;padding:5px;box-shadow:0 1px 0 var(--hair)}
+.pv span{display:block;margin-top:5px;text-align:left}
+.pv.card{width:170px;padding:16px 12px;border:1.5px dashed var(--c-work);color:var(--c-work);text-align:center;background:var(--paper);transform:translateY(18px) rotate(-3deg)}
+.pv.card b{display:block;font-weight:400;font-size:15px;letter-spacing:.08em}
+.pv.card i{display:block;font-style:normal;margin-top:6px;font-size:12px}
+.l:hover .pv,.l:focus-visible .pv{opacity:1;transform:translateY(0) rotate(1.5deg)}
+.l:hover .pv.card,.l:focus-visible .pv.card{transform:translateY(0) rotate(-3deg)}
+@media (hover:none),(max-width:1100px){.pv{display:none}}
+
+/* footer */
+.foot{margin-top:auto;max-width:1100px;width:100%;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft)}
+.foot nav{display:flex;gap:6px 22px;flex-wrap:wrap}
+.foot a{text-decoration:none;border-bottom:1px solid var(--hair)}
+.foot a:hover{color:var(--ink);border-color:var(--ink)}
+.archive{font-size:10px;line-height:1.4;letter-spacing:.06em;text-align:center;border:1px dashed currentColor;padding:7px 10px;opacity:.38;transform:rotate(-2deg);text-transform:lowercase;color:var(--ink)}
+.archive b{font-weight:400;text-transform:uppercase}
+
+/* menu */
+.panel{position:fixed;inset:0 0 0 auto;width:min(340px,86vw);background:var(--paper);border-left:1px solid var(--hair);z-index:50;
+  transform:translateX(100%);visibility:hidden;transition:transform .45s cubic-bezier(.3,.8,.2,1),visibility 0s .45s;padding:22px 28px;display:flex;flex-direction:column}
+.panel.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.3,.8,.2,1)}
+.panel .x{align-self:flex-end;background:none;border:0;font:300 30px/1 var(--f-type);cursor:pointer;padding:6px 8px;margin:-6px -8px 36px;color:var(--ink)}
+.panel ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.panel li a{font-family:var(--hand);font-size:58px;line-height:1.1;text-decoration:none}
+.panel li a:hover{color:var(--c-photo)}
+.panel small{margin-top:auto;font-size:12px;color:var(--ink-soft)}
+.veil{position:fixed;inset:0;z-index:40;display:none}.veil.open{display:block}
+
+@media (max-width:520px){
+  .sheet{padding:0 20px 24px}
+  .letter{padding-top:44px}
+  .foot{flex-direction:column;align-items:flex-start}
+  .archive{align-self:flex-end}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="crayon" x="-3%" y="-120%" width="106%" height="340%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3" result="gA"/><feComposite in="d" in2="gA" operator="in"/></filter>
+</defs></svg>
+
+<div class="sheet" id="sheet">
+  <header class="top">
+    <a class="brand" href="index.html">T. Sathyadass</a>
+    <button class="plus" id="plus" type="button" aria-expanded="false" aria-controls="panel" aria-label="Open menu">+</button>
+  </header>
+
+  <main class="letter">
+    <h1 class="sr">Tharan Sathyadass</h1>
+    <!-- placeholder until Tharan writes these lines: all letter text is set in var(--hand) (Zeyada) -->
+    <div class="ln hello" style="--i:0">Hi, I&rsquo;m Tharan.</div>
+    <div class="ln live" style="--i:1">I live in Kothanur, Bangalore,<br>and I like making things.</div>
+    <div class="ln draw" style="--i:2">
+      <a class="l" href="art.html"><span class="seg">I draw &mdash; mostly charcoal.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span> 
+        <span class="pv" aria-hidden="true"><img src="../../images/works/thumb/charcoal-15.jpg" alt="" width="511" height="700"><span>elephant, charcoal</span></span></a>
+    </div>
+    <div class="ln photo" style="--i:3">
+      <a class="l photo-l" href="photos.html"><span class="seg">I take photographs<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span><br class="dbr">
+        <span class="seg">of people and the<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span> <span class="seg">places they live.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span> 
+        <span class="pv" aria-hidden="true"><img src="../../images/works/thumb/godavari-12.jpg" alt="" width="525" height="700"><span>boat, photograph</span></span></a>
+    </div>
+    <div class="ln work" style="--i:4">
+      <a class="l work-l" href="work.html"><span class="seg">And I run &mdash;<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span> <span class="seg">with the Kothanur Run Club,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span><br class="dbr">
+        <span class="seg">which I co-founded,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span> <span class="seg">and The ArtWave,<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C35 4 80 9 120 5 S180 8 199 5"/><path pathLength="1" d="M3 8 C55 10 95 6 145 9 S188 7 197 8"/></svg></span><br class="dbr">
+        <span class="seg">which brings artists<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 7 C30 3 60 9 100 5 S170 8 199 4"/><path pathLength="1" d="M3 9 C50 6 90 10 140 7 S185 8 197 7"/></svg></span> <span class="seg">together.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6 C40 9 70 3 110 7 S175 4 199 7"/><path pathLength="1" d="M4 9 C60 7 100 10 150 8 S190 8 196 6"/></svg></span> 
+        <span class="pv card" aria-hidden="true"><b>KOTHANUR RUN CLUB</b><i>est. &mdash;&mdash;</i></span></a>
+    </div>
+    <div class="ln sign" style="--i:5"><img src="assets/tharan.png" alt="Tharan" width="181" height="88"></div>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Contact">
+      <a href="mailto:tharan.y.sathyadass@gmail.com">tharan.y.sathyadass@gmail.com</a>
+      <a href="https://instagram.com/tharansathyadass" rel="noopener">instagram.com/tharansathyadass</a>
+    </nav>
+    <div class="archive" aria-hidden="true">artwork from <b>ARCHIVE</b><br>in charge of Tharan Sathyadass *</div>
+  </footer>
+</div>
+
+<div class="veil" id="veil"></div>
+<nav class="panel" id="panel" aria-label="Pages" inert>
+  <button class="x" id="x" type="button" aria-label="Close menu">&times;</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="photos.html">Photography</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="mailto:tharan.y.sathyadass@gmail.com">contact</a></li>
+  </ul>
+  <small>Bangalore</small>
+</nav>
+
+<script>
+(function(){
+  var sheet=document.getElementById('sheet'), reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function skip(){sheet.classList.add('skip');['pointerdown','wheel','keydown','touchstart','scroll'].forEach(function(e){removeEventListener(e,skip)})}
+  if(reduced){skip()}else{['pointerdown','wheel','keydown','touchstart','scroll'].forEach(function(e){addEventListener(e,skip,{passive:true})});
+    setTimeout(function(){sheet.classList.add('skip')},3200)}
+  var p=document.getElementById('panel'),v=document.getElementById('veil'),b=document.getElementById('plus');
+  function set(o){p.classList.toggle('open',o);v.classList.toggle('open',o);b.setAttribute('aria-expanded',o);if(o){p.removeAttribute('inert');document.getElementById('x').focus()}else{p.setAttribute('inert','');b.focus()}}
+  b.onclick=function(){set(true)};document.getElementById('x').onclick=v.onclick=function(){set(false)};
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))set(false)});
+})();
+</script>
+</body>
+</html>
