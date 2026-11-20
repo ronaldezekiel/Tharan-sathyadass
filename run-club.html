@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kothanur Run Club — Journal · Tharan Sathyadass</title>
+<meta name="description" content="Journal of Kothanur Run Club, a youth-led social fitness collective in Bangalore co-founded by Tharan Sathyadass.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="logpage">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.25" result="grainA"/>
+      <feComposite in="d" in2="grainA" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="index.html">T. Sathyadass <span>/ index</span></a>
+  <nav class="index" aria-label="Site">
+    <a href="index.html">&larr; home</a>
+    <a href="index.html#press">published &amp; press</a>
+    <a href="index.html#contact">contact</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="sec">
+    <header class="sec-head"><span class="num">04</span><h1 class="h-sec">Kothanur Run Club</h1><span class="note">the journal / logbook</span></header>
+
+    <div class="textcard r-l">
+      <span class="tape t1"></span>
+      <p>Kothanur Run Club is a youth-led social fitness collective, co-founded by Tharan. The community runs are about connection, not competition.</p>
+      <p class="mono small">Journey, growth, socials, events and pictures, newest first.</p>
+      <svg class="scrib s-card" viewBox="0 0 200 40" aria-hidden="true"><path class="crayon red" d="M4 28 C 30 6, 60 38, 96 16 S 160 34, 196 8"/></svg>
+    </div>
+
+    <ul class="links mono follow">
+      <li><a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram / tharansathyadass</a></li>
+      <li><a href="https://instagram.com/th.sathyadass" target="_blank" rel="noopener">instagram / th.sathyadass <small>(art)</small></a></li>
+      <li><!-- TODO: Kothanur Run Club Instagram (account unknown) --><span class="todo">run club instagram: coming soon</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" aria-label="Journal entries">
+    <div class="logbook" id="logbook"></div>
+    <noscript><p class="note nojs">turn on JavaScript to read the journal entries</p></noscript>
+  </section>
+</main>
+
+<footer class="foot wrap mono small">&copy; 2026 Tharan Sathyadass &middot; Bangalore <a href="index.html">back to the archive</a></footer>
+
+<script src="journal.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
