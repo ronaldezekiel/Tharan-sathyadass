@@ -185,3 +185,14 @@ h1.h-sec{margin:0;font-family:var(--f-label);font-weight:700;text-transform:uppe
   .entry-body{padding-left:32px;padding-right:16px}
 }
 @media (min-width:760px){.jclips{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- real handwriting cutouts ---------- */
+.hw{display:block;height:auto;max-width:100%;pointer-events:none;user-select:none}
+.hw-greet{position:relative;margin:0 0 10px;max-width:340px}
+.hw-hello{width:clamp(70px,22vw,100px);transform:rotate(-5deg);margin-left:4px}
+.hw-name{width:min(100%,300px);transform:rotate(-2deg);margin-top:-6px;margin-left:34px}
+.n1{font-size:24px;margin-top:2px}
+.hw-kothanur{width:min(100%,320px);transform:rotate(-2deg);margin:-4px 0 8px -2px}
+.hw-sign{width:clamp(100px,30vw,130px);transform:rotate(-4deg);margin:10px 0 0 6px}
+.foot-sign{display:inline-flex;align-items:center;gap:10px}
+.hw-foot{width:70px;transform:rotate(-3deg)}
