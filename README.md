@@ -20,6 +20,10 @@ Kothanur Run Club journal, shown as the 3 latest clippings on the home page and 
 Copy the commented SAMPLE TEMPLATE at the bottom of `journal.js`: `{ slug, date ('YYYY-MM-DD'), title, excerpt, body (HTML), photos: [], tags: [] }`.
 Optional `link: { href, label }` for press links. Each entry has its own anchor, e.g. `run-club.html#press-indulge-express`.
 
+## Interactivity (vanilla JS/CSS, all in `script.js` + `styles.css`)
+Fixed chrome (name + hand-drawn "+" opening the slide-in menu, pinned footer bits), intro (once per session, home only), "selected works" scroll sequence (`#selected`; pieces are listed in the `SEQ` array in `script.js` by `works.js` filename, with left %, width, speed), marquee (edit the words in `index.html`), scroll reveals, crayon scribbles that draw themselves, hover colour + "view" cursor, lightbox with prev/next/arrow keys/swipe.
+`prefers-reduced-motion` gets static layouts (sequence becomes a staggered grid, no intro/marquee motion). Under 760px the sequence is a single staggered column over a sticky sliding name.
+
 ## Publish on GitHub Pages
 1. Push this folder to a GitHub repository (the `.nojekyll` file must stay).
 2. Repo Settings, Pages, Source: "Deploy from a branch", pick `main` and `/ (root)` (or the folder holding `index.html`).

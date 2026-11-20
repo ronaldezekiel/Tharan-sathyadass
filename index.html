@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');if(!sessionStorage.getItem('introSeen')){sessionStorage.setItem('introSeen','1');d.classList.add('intro-on')}}}catch(e){}
+</script>
 </head>
 <body>
 
@@ -30,6 +33,13 @@
       <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.15" result="m"/>
       <feComposite in="b" in2="m" operator="in"/>
     </filter>
+    <filter id="inkxl" x="-2%" y="-6%" width="104%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="10" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.3" numOctaves="2" seed="5" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.8" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
       <feColorMatrix type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.22  0 0 0 0 0.15  0 0 0 0.55 0"/>
@@ -37,18 +47,26 @@
   </defs>
 </svg>
 
-<header class="topbar">
-  <a class="brand" href="#top">T. Sathyadass <span>/ index</span></a>
-  <nav class="index" aria-label="Sections">
-    <a href="#charcoal">01 charcoal</a>
-    <a href="#photography">02 photography</a>
-    <a href="run-club.html">03 run club</a>
-    <a href="#press">04 published &amp; press</a>
-    <a href="#artwave">05 the artwave</a>
-    <a href="#about">06 about</a>
-    <a href="#contact">07 contact</a>
-  </nav>
-</header>
+<a class="chrome-brand" href="#top">T. Sathyadass</a>
+<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+  <svg viewBox="0 0 40 40" aria-hidden="true"><g><path class="hand" d="M20 5 C 18.5 13, 21.5 27, 20 35"/><path class="hand" d="M5 20 C 13 18.5, 27 21.5, 35 20"/></g></svg>
+</button>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<nav class="menu" id="menu" aria-label="Sections" inert>
+  <a href="#charcoal"><b>01</b> charcoal &amp; ink</a>
+  <a href="#photography"><b>02</b> photography</a>
+  <a href="#runclub"><b>03</b> kothanur run club</a>
+  <a href="#press"><b>04</b> published &amp; press</a>
+  <a href="#artwave"><b>05</b> the artwave</a>
+  <a href="#about"><b>06</b> about</a>
+  <a href="#contact"><b>07</b> contact</a>
+  <a class="menu-ext" href="run-club.html">run club journal &#8599;</a>
+  <span class="note menu-note">thanks for looking</span>
+</nav>
+<div class="pin pin-l mono">&copy; 2026 Tharan Sathyadass</div>
+<div class="pin pin-r mono"><a href="mailto:tharan.y.sathyadass@gmail.com">mail</a> / <a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram</a></div>
+
+<div class="intro" aria-hidden="true"><img class="i-hello" src="images/handwriting/hello.png" alt="" width="157" height="121"><p class="i-name">Tharan<br>Sathyadass</p></div>
 
 <main id="top">
 
@@ -98,6 +116,23 @@
     <i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i>
   </div>
 </section>
+
+<!-- ============ SELECTED WORKS: scroll sequence + marquee ============ -->
+<section class="seq" id="selected" aria-label="Selected works">
+  <div class="seq-stage">
+    <div class="seq-namewrap" aria-hidden="true"><div class="seq-name" id="seqName"><span>Tharan Sathyadass</span></div></div>
+    <div class="seq-label"><span class="mono">selected works</span><span class="note">keep scrolling</span></div>
+    <div class="seq-items" id="seqItems"></div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee" aria-label="Artist, photographer, charcoal, Kothanur Run Club, The ArtWave, Bangalore">
+  <div class="marquee-track">
+    <div class="mq-group"><span>Artist</span><span class="dot-sep">&bull;</span><span>Photographer</span><span class="dot-sep">&bull;</span><span>Charcoal</span><span class="dot-sep">&bull;</span><img class="hw" src="images/handwriting/i-am-from-kothanur-blue.png" alt="" width="750" height="156" loading="lazy"><span>Kothanur Run Club</span><span class="dot-sep">&bull;</span><span>The ArtWave</span><span class="dot-sep">&bull;</span><span>Bangalore</span><span class="dot-sep">&bull;</span></div>
+    <div class="mq-group" aria-hidden="true"><span>Artist</span><span class="dot-sep">&bull;</span><span>Photographer</span><span class="dot-sep">&bull;</span><span>Charcoal</span><span class="dot-sep">&bull;</span><img class="hw" src="images/handwriting/i-am-from-kothanur-blue.png" alt="" width="750" height="156" loading="lazy"><span>Kothanur Run Club</span><span class="dot-sep">&bull;</span><span>The ArtWave</span><span class="dot-sep">&bull;</span><span>Bangalore</span><span class="dot-sep">&bull;</span></div>
+  </div>
+</div>
+</div>
 
 <!-- ============ 01 CHARCOAL ============ -->
 <section id="charcoal" class="sec wrap">
@@ -197,8 +232,10 @@
 <footer class="foot wrap mono small">&copy; 2026 Tharan Sathyadass &middot; Bangalore <span class="foot-sign"><span class="note">thanks for looking</span> <img class="hw hw-foot" src="images/handwriting/tharan.png" alt="Tharan, handwritten signature" width="181" height="88"></span></footer>
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lb-close" aria-label="Close">&times;</button>
-  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous image">&larr;</button>
+  <button class="lb-nav lb-next" type="button" aria-label="Next image">&rarr;</button>
+  <figure><img alt=""><figcaption aria-live="polite"><span class="lb-cap"></span><span class="lb-count"></span></figcaption></figure>
 </div>
 
 <script src="works.js"></script>

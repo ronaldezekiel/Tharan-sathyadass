@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim');}}catch(e){}
+</script>
 </head>
 <body class="logpage">
 
@@ -24,14 +27,25 @@
   </defs>
 </svg>
 
-<header class="topbar">
-  <a class="brand" href="index.html">T. Sathyadass <span>/ index</span></a>
-  <nav class="index" aria-label="Site">
-    <a href="index.html">&larr; home</a>
-    <a href="index.html#press">published &amp; press</a>
-    <a href="index.html#contact">contact</a>
-  </nav>
-</header>
+<a class="chrome-brand" href="index.html">T. Sathyadass</a>
+<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+  <svg viewBox="0 0 40 40" aria-hidden="true"><g><path class="hand" d="M20 5 C 18.5 13, 21.5 27, 20 35"/><path class="hand" d="M5 20 C 13 18.5, 27 21.5, 35 20"/></g></svg>
+</button>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<nav class="menu" id="menu" aria-label="Sections" inert>
+  <a href="index.html#charcoal"><b>01</b> charcoal &amp; ink</a>
+  <a href="index.html#photography"><b>02</b> photography</a>
+  <a href="index.html#runclub"><b>03</b> kothanur run club</a>
+  <a href="index.html#press"><b>04</b> published &amp; press</a>
+  <a href="index.html#artwave"><b>05</b> the artwave</a>
+  <a href="index.html#about"><b>06</b> about</a>
+  <a href="index.html#contact"><b>07</b> contact</a>
+  <a class="menu-ext" href="run-club.html" aria-current="page">run club journal &#8599;</a>
+  <span class="note menu-note">thanks for looking</span>
+</nav>
+<div class="pin pin-l mono">&copy; 2026 Tharan Sathyadass</div>
+<div class="pin pin-r mono"><a href="mailto:tharan.y.sathyadass@gmail.com">mail</a> / <a href="https://instagram.com/tharansathyadass" target="_blank" rel="noopener">instagram</a></div>
+
 
 <main class="wrap">
   <section class="sec">
